@@ -21,6 +21,7 @@ ul.submenu {
 ul.submenu li {
     overflow: hidden;
     transition: .2s ease transfrom;
+    position: relative;
 }
 ul.menu li {
     list-style: none;
