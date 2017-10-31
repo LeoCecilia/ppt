@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../revealjs/css/reveal.css">
+	<link rel="stylesheet" type="text/css" href="../revealjs/css/theme/black.css">
+	<link rel="stylesheet" type="text/css" href="../revealjs/lib/css/highlight.css">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '../revealjs/css/print/pdf.css' : '../revealjs/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>导航栏</h1>
+				<p class="footer">
+					<span>按 → 继续</span>
+				</p>
+			</section>
+			<section class="stack present">
+				<section class="present">
+					<h1>平行四边形</h1>
+					<img src="../img/Parallelogram.png">
+				</section>
+				<section class="future">
+					<img src="../img/tag.png">
+				</section>
+				<section class="future">
+					<h1>skew</h1>
+					<img src="../img/skew.png">
+				</section>
+				<section class="future">
+					<h1>如何让内容不倾斜!</h1>
+					<img src="../img/contentNotSkew.png">
+				</section>
+				<section class="future">
+					<h1>到了公布答案的时刻了</h1>
+				</section>
+				<section class="future">
+					<pre class="visible">
+						<code data-trim>
+<a href="#" class="button"><div>Click</div></a>
+
+.button {
+	transform:skewX(-45deg);
+}
+.button > div {
+	transform:skewX(45deg);
+}
+						</code>
+					</pre>
+				</section>
+				
+				<section class="future">
+					<p class="visible current-fragment" data-fragment-index='0'>但是这做法很明显不符合语义化的需求</p>
+					<p class="fragment" data-fragment-index='1'>而且这也破坏了文本结构的纯净度</p>
+					
+					
+					<img class="fragment" src="../img/bad.png">
+				</section>	
+				
+				<section class="future">
+					<h1>思路</h1>
+					<p class="fragment" data-fragment-index='2'>
+						把样式应用到伪元素当中
+					</p>
+					<p class="fragment" data-fragment-index='3'>
+						再对伪元素进行变形
+					</p>
+				</section>
+				<section class="future">
+				<p class="visible" data-fragment-index="0">如何让伪元素自动继承宿主元素的尺寸呢</p>
+				<pre class="fragment" data-fragment-index="1">
+					<code>
+.button{
+	position: relative;
+}
+.button::before{
+	content: '';
+	position: absolute;
+	top: 0; right: 0;
+	bottom:0; left: 0;
+	
+}						
+					</code>
+				</pre>
+
+				</section>
+				<section class="future">
+				<pre>
+					<code>
+.button{
+	position: relative;
+}
+.button::before{
+	content: '';
+	position: absolute;
+	top: 0; right: 0;
+	bottom:0; left: 0;
+	z-index:-1;
+	background: #58a;
+	transform:skew(45deg);
+}						
+					</code>
+				</pre>
+
+				</section>
+				<section>
+					<h1>总结</h1>
+					<p class="fragment">利用伪元素以及定位属性产生一个block</p>
+					<p class="fragment">为其设置样式</p>
+					<p class="fragment">并将其放在宿主元素的下层</p>
+				</section>			
+				<section>
+					<h1 class="visible">拓展延伸</h1>
+					<ul>
+						<li class="fragment">绘制边框内圆角</li>
+						<li class="fragment">绘制梯形</li>
+					</ul>
+					
+				</section>
+			</section>
+			<section>
+				
+			</section>
+			<section >
+				<h1>一般标签页</h1>
+				<img src="../img/threeGuide.png">
+			</section>
+			<section>
+				<img src="../img/large.png">
+			</section>
+			<section>
+				<img src="../img/guide.png">
+			</section>
+			<section>
+				<img src="../img/css-tricks.png">
+			</section>
+			<section>
+				<img src="../img/detail.png">
+			</section>
+			<section>
+				<img src="../img/moreDetail.png">
+			</section>
+		</div>
+	</div>
+	<script src="../revealjs/lib/js/head.min.js"></script>
+	<script src="../revealjs/js/reveal.js"></script>
+	<script>
+			// More info https://github.comfalse/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				slideNumber: true,
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: '../revealjs/plugin/markdown/marked.js' },
+					{ src: '../revealjs/plugin/markdown/markdown.js' },
+					{ src: '../revealjs/plugin/notes/notes.js', async: true },
+					{ src: '../revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+                        Reveal.configure({ slideNumber: 'c/t' });
+	</script>
+</body>
+</html>

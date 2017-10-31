@@ -1,0 +1,52 @@
+body,html{
+	width: 100%;
+	height: 100%;
+}
+ul li.lovely::before {
+    background: radial-gradient(circle at top left,transparent 14.7px,#58a 0) top left;
+    left: -15px;
+}
+ul li.lovely::after {
+    background: radial-gradient(circle at top right,transparent 14.7px,#58a 0) top right;
+    right: -15px;
+}
+
+ul li.lovely::before, ul li.lovely::after {
+    content: ' ';
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    bottom: 0;
+    display: block;
+}
+
+ul li.lovely {
+    width: 100px;
+    height: 50px;
+    background: #58a;
+    position: relative;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    text-align: center;
+    line-height: 50px;
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+ul{margin-top: 20px;
+	margin-bottom: 0;
+	border-bottom: 1px solid #f8a;
+}
+
+.full{
+	width: 100%;
+	height: 80%;
+	background: #58a;
+}
+
+.button{
+	transform:shewX(-45deg);
+}
+
+
